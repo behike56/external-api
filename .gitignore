@@ -14,7 +14,6 @@ pom.xml.asc
 .nrepl-port
 .cpcache/
 
-
 ### VisualStudioCode ###
 .vscode/*
 !.vscode/settings.json
@@ -22,6 +21,11 @@ pom.xml.asc
 !.vscode/launch.json
 !.vscode/extensions.json
 !.vscode/*.code-snippets
+
+# clojure plugins
+.clj-kondo
+.lsp
+.calva
 
 # Local History for Visual Studio Code
 .history/
