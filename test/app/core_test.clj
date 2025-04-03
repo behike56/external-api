@@ -1,4 +1,4 @@
-(ns be-external-api-clj.core-test
+(ns app.core-test
   (:require [clojure.test :refer :all]
             [be-external-api-clj.core :refer :all]))
 

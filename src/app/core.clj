@@ -1,1 +1,1 @@
-(ns be-external-api-clj.core)
+(ns app.core)
