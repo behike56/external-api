@@ -71,3 +71,6 @@ Temporary Items
 ### macOS Patch ###
 # iCloud generated files
 *.icloud
+
+# local devs
+test.mv.db
