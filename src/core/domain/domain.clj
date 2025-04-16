@@ -1,4 +1,4 @@
-(ns app.core.domain.domain)
+(ns core.domain.domain)
 
 (defn uppercase-name
   "ユーザ名を大文字にして返すサンプル関数。"

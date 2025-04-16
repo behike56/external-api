@@ -1,4 +1,4 @@
-(ns app.core.ports.port)
+(ns ports.port)
 
 (defprotocol UserRepository
   "ユーザ情報を取得/操作するためのポートの例"
