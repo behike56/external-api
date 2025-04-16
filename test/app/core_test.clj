@@ -1,6 +1,6 @@
 (ns app.core-test
   (:require [clojure.test :refer :all]
-            [be-external-api-clj.core :refer :all]))
+            [app.core :refer :all]))
 
 (deftest a-test
   (testing "FIXME, I fail."
