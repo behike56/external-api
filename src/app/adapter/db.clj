@@ -10,6 +10,14 @@
                         :user     "sa"
                         :password ""}))
 
+(defn create-rag-datesource
+  "rag用のソースを作成する。"
+  []
+  {:subprotocol "h2"
+   :subname     "./test"
+   :user        "sa"
+   :password    ""})
+
 ;; UserRepository プロトコル実装
 (defrecord DbUserRepository [datasource]
   UserRepository
