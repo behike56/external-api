@@ -3,6 +3,7 @@
   (:require [ring.adapter.jetty :refer [run-jetty]]
             [ragtime.repl :as ragtime]
             [ragtime.jdbc :as rag-jdbc]
+            [adapter.out.ext-api :refer [->RealExternalApiClient]]
             [adapter.out.db :as db]
             [adapter.in.handler :as handler])
   (:gen-class))
@@ -20,7 +21,8 @@
 
     ;; 2. DBリポジトリ(ポート実装)を用意
   (let [db-repo (db/new-db-user-repository)
-        handler (handler/handler db-repo)]
+        ext-client (->RealExternalApiClient) 
+        handler (handler/handler db-repo ext-client)]
       ;; 3. Ringサーバ起動
     (run-jetty handler {:port 3000
                         :join? false})
@@ -33,6 +35,6 @@
   (migrate)
   (let [db-repo (db/new-db-user-repository)
         ext-client (->RealExternalApiClient) 
-        handler (handler/handler db-repo)]
+        handler (handler/handler db-repo ext-client)]
     (println "Starting server on port 3000 (dev mode)...")
     (run-jetty handler {:port 3000 :join? false})))
