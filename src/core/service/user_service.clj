@@ -2,9 +2,9 @@
   (:require [ports.out.user :as user-port]))
 
 (defn get-user [repo user-id]
-  (some-> user-id
-          (Integer/parseInt)
-          (user-port/find-user-by-id repo)))
+  (if (re-matches #"\d+" user-id)
+    (user-port/find-user-by-id repo (Integer/parseInt user-id))
+    {:status 400 :error "Invalid user id"}))
 
 (defn- validate-user [user-data]
   (let [name (:name user-data)]

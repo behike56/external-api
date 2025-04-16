@@ -5,10 +5,10 @@
 (defn get-user-handler [repo]
   (fn [req]
     (let [id-str (-> req :path-params :id)
-          user (user-service/get-user repo id-str)]
-      (if user
-        (response/response user)
-        (response/not-found {:error "User not found"})))))
+          result (user-service/get-user repo id-str)]
+      (if (:error result)
+        (response/status (response/response result) (:status result))
+        (response/response result)))))
 
 (defn create-user-handler [repo]
   (fn [req]
