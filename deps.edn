@@ -14,7 +14,8 @@
         ;; DBアクセス
         com.github.seancorfield/next.jdbc       {:mvn/version "1.3.1002"}
         ;; マイグレーション
-        ragtime/ragtime              {:mvn/version "0.8.1"}}
+        ragtime/ragtime              {:mvn/version "0.8.1"}
+        com.h2database/h2 {:mvn/version "2.3.232"}}
 
  ;; REPLの起動やビルド・テストに利用するエイリアスを定義
  :aliases {:test {:extra-paths ["test"]
