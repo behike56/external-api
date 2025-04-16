@@ -1,9 +1,10 @@
 (ns app.core
+  " アプリケーション起動責務（Jetty起動＋DI）"
   (:require [ring.adapter.jetty :refer [run-jetty]]
             [ragtime.repl :as ragtime]
             [ragtime.jdbc :as rag-jdbc]
-            [app.adapter.db :as db]
-            [app.adapter.ext-api :as ext])
+            [adapter.out.db :as db]
+            [adapter.in.handler :as handler])
   (:gen-class))
 
   ;; DBマイグレーションのサンプル設定
@@ -19,7 +20,7 @@
 
     ;; 2. DBリポジトリ(ポート実装)を用意
   (let [db-repo (db/new-db-user-repository)
-        handler (ext/handler db-repo)]
+        handler (handler/handler db-repo)]
       ;; 3. Ringサーバ起動
     (run-jetty handler {:port 3000
                         :join? false})
@@ -31,6 +32,7 @@
   []
   (migrate)
   (let [db-repo (db/new-db-user-repository)
-        handler (ext/handler db-repo)]
+        ext-client (->RealExternalApiClient) 
+        handler (handler/handler db-repo)]
     (println "Starting server on port 3000 (dev mode)...")
     (run-jetty handler {:port 3000 :join? false})))
