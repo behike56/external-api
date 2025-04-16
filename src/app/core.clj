@@ -8,7 +8,7 @@
 
   ;; DBマイグレーションのサンプル設定
 (defn migrate []
-  (let [ds (db/create-datasource)
+  (let [ds (db/create-rag-datesource)
         config {:datastore  (rag-jdbc/sql-database ds)
                 :migrations (rag-jdbc/load-resources "migrations")}]
     (ragtime/migrate config)))
