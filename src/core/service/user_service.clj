@@ -22,6 +22,6 @@
       nil))) ;; バリデーションエラーなし
 
 (defn create-user [repo user-data]
-  (if-let [err (validate-user user-data)]
-    err
-    (user-port/create-user repo user-data)))
+  (if (m/validate schema/UserInputSchema user-data)
+    (user-port/create-user repo user-data)
+    {:status 400 :error "Invalid user data"}))
