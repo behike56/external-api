@@ -6,7 +6,7 @@
    [ring.middleware.params :refer [wrap-params]]
    [ring.middleware.keyword-params :refer [wrap-keyword-params]]
    [ring.middleware.json :refer [wrap-json-body wrap-json-response]]
-   [ring.middleware.logger :refer [wrap-with-logger]]
+   [ring.logger :refer [wrap-with-logger]]
    [adapter.in.controller.user-controller :as user-controller]
    [adapter.in.controller.external-controller :as external-controller]))
 
