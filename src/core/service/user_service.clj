@@ -1,5 +1,8 @@
 (ns core.service.user-service
-  (:require [ports.out.user :as user-port]))
+  (:require
+   [malli.core :as m]
+   [core.schema.user-schema :as schema]
+   [ports.out.user :as user-port]))
 
 (defn get-user [repo user-id]
   (if (re-matches #"\d+" user-id)

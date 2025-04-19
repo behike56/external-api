@@ -1,7 +1,7 @@
 (ns adapter.out.db
   (:require [next.jdbc :as jdbc]
-            [app.ports.port :refer [UserRepository]]
-            [app.adapter.in.controller.user-controller :as user-controller]))
+            [ports.out.user :refer [UserRepository]]
+            [adapter.in.controller.user-controller :as user-controller]))
 
 (defn create-datasource
   "next.jdbc用のDataSourceを作成するサンプル。実際には接続情報を設定ファイルなどから取得します。"
