@@ -3,4 +3,9 @@
 
 (def UserInputSchema
   [:map
-   [:name [:and string? [:min 2]]]])
+   [:name [:string {:min 2}]]])
+
+(def UserOutputSchema
+  [:map
+   [:id int?]
+   [:name string?]])

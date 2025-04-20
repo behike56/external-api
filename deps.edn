@@ -2,25 +2,29 @@
  :paths ["src" "resources"]
 
  ;; :deps にはClojure本体以外に使いたいライブラリの依存関係を指定
- :deps {
-        ;; Clojure 本体
+ :deps {;; Clojure 本体
         org.clojure/clojure          {:mvn/version "1.12.0"}
         ;; Ring (サーバ起動用アダプタなど)
         ring/ring-core               {:mvn/version "1.13.0"}
         ring/ring-defaults {:mvn/version "0.6.0"}
         ring-logger/ring-logger {:mvn/version "1.1.1"}
-        ring/ring-json {:mvn/version "0.5.1"} 
+        ring/ring-json {:mvn/version "0.5.1"}
         ring/ring-jetty-adapter      {:mvn/version "1.13.0"}
         ;; Reitit (ルーティング)
-        metosin/reitit-ring          {:mvn/version "0.7.2"}
+        metosin/reitit-ring          {:mvn/version "0.8.0"}
         ;; DBアクセス
         com.github.seancorfield/next.jdbc       {:mvn/version "1.3.1002"}
         ;; マイグレーション
         ragtime/ragtime              {:mvn/version "0.8.1"}
         com.h2database/h2 {:mvn/version "2.3.232"}
-        metosin/malli {:mvn/version "0.13.0"}
         metosin/muuntaja {:mvn/version "0.6.11"}
-        clj-http/clj-http {:mvn/version "3.13.0"}}
+        clj-http/clj-http {:mvn/version "3.13.0"}
+        ;; スキーマ
+        metosin/malli {:mvn/version "0.17.0"}
+        metosin/reitit {:mvn/version "0.8.0"}
+        metosin/reitit-swagger {:mvn/version "0.8.0"}
+        metosin/reitit-swagger-ui {:mvn/version "0.8.0"}
+        metosin/reitit-malli {:mvn/version "0.8.0"}}
 
  ;; REPLの起動やビルド・テストに利用するエイリアスを定義
  :aliases {:test {:extra-deps {io.github.cognitect-labs/test-runner
