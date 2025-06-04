@@ -1,7 +1,5 @@
 (ns core.service.user-service
   (:require
-   [malli.core :as m]
-   [core.schema.user-schema :as schema]
    [ports.out.user :as user-port]))
 
 (defn get-user [repo user-id]
@@ -25,6 +23,6 @@
       nil))) ;; バリデーションエラーなし
 
 (defn create-user [repo user-data]
-  (if (m/validate schema/UserInputSchema user-data)
-    (user-port/create-user repo user-data)
-    {:status 400 :error "Invalid user data"}))
+  (if-let [err (validate-user user-data)]
+    err
+    (user-port/create-user repo user-data)))
